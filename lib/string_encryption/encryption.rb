@@ -1,8 +1,11 @@
+require 'base64'
+require 'uri'
+
 module StringEncryption
   def self.decrypt(encrypted_data)
     des = OpenSSL::Cipher::Cipher.new("des-ede3-cbc")
     des.decrypt
-    des.key = ENV['STRING_ENCRYPTION_KEY']
+    des.key = ENV['LIB_STRING_ENCRYPTION_KEY']
     encrypted_data = URI.unescape(encrypted_data)
     encrypted_data = Base64.decode64(encrypted_data)
     
@@ -14,9 +17,9 @@ module StringEncryption
   def self.encrypt(string)
     des = OpenSSL::Cipher::Cipher.new("des-ede3-cbc")
     des.encrypt
-    des.key = ENV['STRING_ENCRYPTION_KEY']
+    des.key = ENV['LIB_STRING_ENCRYPTION_KEY']
     
-    des.iv = iv = ActiveSupport::SecureRandom.hex(4)
+    des.iv = iv = SecureRandom.hex(4)
     
     data = des.update(string) + des.final  
     data = iv + data

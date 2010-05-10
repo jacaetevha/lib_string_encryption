@@ -1,30 +1,32 @@
-string_encryption v0.1
-======================
+= lib_string_encryption
 
-Library that allows for super simple string encryption.
+A library that allows for super simple string encryption.
 
-
-Example
-=======
+== Examples
 Description:
-    Adds a STRING_ENCRYPTION_KEY environmental constant
-
-Example:
-    ./script/generate string_encryption
-
-    This will create:
-       ENV['STRING_ENCRYPTION_KEY'] = "..."
-
-Usage
-=====
+  Outputs a random string for encryption that is 28 characters long.
+  
+  rake print_key
+  
+== Usage
 Encryption:
-"Test".encrypt
-	=> "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
+  "Test".encrypt
+	  => "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
 
-Decryption
-"NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt
-	=> "Test"
+Decryption:
+  "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt
+  	=> "Test"
 
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
 
-Copyright (c) 2009 Knetwit Inc., released under the MIT license
-Author(s): Heath Anderson
+== Copyright
+
+Copyright (c) 2010 Jason Rogers. See LICENSE for details.

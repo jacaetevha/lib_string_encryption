@@ -19,9 +19,8 @@ module StringEncryption
     # * /dev/urandom
     # * Win32
     #
-    # *Note*: This module is based on the SecureRandom library from Ruby 1.9,
-    # revision 18786, August 23 2008. It's 100% interface-compatible with Ruby 1.9's
-    # SecureRandom library.
+    # *Note*: This module was taken directly from ActiveSupport, which is based.
+    # on SecureRandom from Ruby 1.9
     #
     # == Example
     #
