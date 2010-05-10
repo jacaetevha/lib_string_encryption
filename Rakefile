@@ -1,23 +1,13 @@
-require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
+$:.unshift File.expand_path( File.join( File.dirname(__FILE__), 'lib') )
+require 'string_encryption'
 
-desc 'Default: run unit tests.'
-task :default => :test
-
-desc 'Test the string_encryption plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+desc "Produces a constant that can be set in the environment for string encryption"
+task :key do
+  key = StringEncryption::SecureRandom.hex(14)
+  ENV['STRING_ENCRYPTION_KEY'] = key
+  key
 end
 
-desc 'Generate documentation for the string_encryption plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'StringEncryption'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+task :print_key => :key do
+  puts key
 end

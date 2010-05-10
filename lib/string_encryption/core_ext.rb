@@ -1,9 +1,9 @@
 String.class_eval do 
   def encrypt 
-    Knet::Encryption.encrypt(self)
+    StringEncryption.encrypt(self)
   end
   
   def decrypt 
-    Knet::Encryption.decrypt(self)
+    StringEncryption.decrypt(self)
   end
 end 

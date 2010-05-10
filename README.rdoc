@@ -1,0 +1,30 @@
+string_encryption v0.1
+======================
+
+Library that allows for super simple string encryption.
+
+
+Example
+=======
+Description:
+    Adds a STRING_ENCRYPTION_KEY environmental constant
+
+Example:
+    ./script/generate string_encryption
+
+    This will create:
+       ENV['STRING_ENCRYPTION_KEY'] = "..."
+
+Usage
+=====
+Encryption:
+"Test".encrypt
+	=> "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
+
+Decryption
+"NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt
+	=> "Test"
+
+
+Copyright (c) 2009 Knetwit Inc., released under the MIT license
+Author(s): Heath Anderson
