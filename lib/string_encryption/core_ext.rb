@@ -1,9 +1,9 @@
 String.class_eval do 
-  def encrypt 
-    StringEncryption.encrypt(self)
+  def encrypt key=ENV['LIB_STRING_ENCRYPTION_KEY']
+    StringEncryption.encrypt(self, key)
   end
   
-  def decrypt 
-    StringEncryption.decrypt(self)
+  def decrypt key=ENV['LIB_STRING_ENCRYPTION_KEY']
+    StringEncryption.decrypt(self, key)
   end
 end 
